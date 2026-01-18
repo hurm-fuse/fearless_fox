@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FEARLESS FOX – Join Our Team</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #ff0000;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ff0000;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ff0000;
+            padding: 15px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav li a {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        nav li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding: 100px 20px;
+            background-color: #ffffff;
+            color: #ff0000;
+        }
+
+        #hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        #hero h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #hero ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        #hero ul li {
+            display: inline-block;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        #hero a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Apply Section */
+        #apply {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+        }
+
+        #apply h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #ff0000;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ff0000;
+            background-color: #ffffff;
+            color: #ff0000;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff0000;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff0000;
+            color: #ffffff;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#apply">Apply</a></li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <h1>FEARLESS FOX</h1>
+        <h3>We Are Hiring</h3>
+        <p>Video Editors & Influencers<br>Work with a fearless digital brand and build your career.</p>
+        <a href="#apply">Apply for Job</a>
+    </section>
+
+    <!-- Apply Section -->
+    <section id="apply">
+        <h2>Apply for Job</h2>
+        <form action="https://formsubmit.co/byteburial@gmail.com" method="POST">
+            <label>Full Name</label>
+            <input type="text" name="Name" required />
+
+            <label>Email Address</label>
+            <input type="email" name="Email" required />
+
+            <label>Phone Number</label>
+            <input type="text" name="Phone" required />
+
+            <label>Select Role</label>
+            <select name="Role" required>
+                <option value="">-- Select --</option>
+                <option value="Video Editor">Video Editor</option>
+                <option value="Influencer">Influencer</option>
+            </select>
+
+            <label>Portfolio / Social Media Link</label>
+            <input type="text" name="Link" placeholder="YouTube / Instagram / Drive link" required />
+
+            <label>Why should we hire you?</label>
+            <textarea name="Message"></textarea>
+
+            <input type="hidden" name="_replyto" value="byteburial@gmail.com">
+            <button type="submit">Submit Application</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>© 2026 FEARLESS FOX. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
