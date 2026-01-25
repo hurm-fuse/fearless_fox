@@ -38,7 +38,7 @@
             top: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 8%;
-            background: rgba(5, 5, 5, 0.8);
+            background: rgba(5, 5, 5, 0.85);
             backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid var(--border);
@@ -50,6 +50,7 @@
             font-size: 1.4rem;
             color: var(--brand-red);
             letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         nav ul { display: flex; list-style: none; gap: 30px; }
@@ -75,32 +76,36 @@
         .btn {
             padding: 16px 40px; background: var(--brand-red); color: white; text-decoration: none;
             font-weight: 700; border-radius: 4px; transition: 0.3s; text-transform: uppercase;
+            display: inline-block;
         }
-        .btn:hover { background: var(--brand-red-dark); transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 0, 0, 0.3); }
+        .btn:hover { background: var(--brand-red-dark); transform: scale(1.05); box-shadow: 0 0 30px rgba(255, 0, 0, 0.4); }
 
         /* --- 2. ABOUT SECTION --- */
         #about { background: var(--bg-card); display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
         .about-content h2 { font-size: 3rem; margin-bottom: 20px; font-family: 'Montserrat'; }
         .about-content p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 20px; }
 
-        /* --- 3. ROLES SECTION (Cards) --- */
+        .about-stats .role-card { text-align: center; border-color: var(--brand-red); }
+
+        /* --- 3. ROLES SECTION --- */
         .roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .role-card {
             background: var(--glass); border: 1px solid var(--border); padding: 40px; border-radius: 15px;
-            transition: 0.4s; position: relative; overflow: hidden;
+            transition: 0.4s; position: relative;
         }
-        .role-card:hover { border-color: var(--brand-red); transform: translateY(-10px); background: rgba(255, 0, 0, 0.02); }
-        .role-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--brand-red); }
+        .role-card:hover { border-color: var(--brand-red); transform: translateY(-10px); background: rgba(255, 0, 0, 0.05); }
+        .role-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--brand-red); font-family: 'Montserrat'; }
         .role-card p { color: var(--text-gray); font-size: 0.95rem; }
 
         /* --- 4. BENEFITS SECTION --- */
         #benefits { background: var(--bg-card); }
         .benefit-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .benefit-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: var(--bg-deep); border-radius: 10px; }
-        .benefit-item b { color: var(--brand-red); font-size: 1.2rem; }
+        .benefit-item { display: flex; align-items: center; gap: 15px; padding: 25px; background: var(--bg-deep); border-radius: 10px; border: 1px solid var(--border); transition: 0.3s; }
+        .benefit-item:hover { border-color: var(--brand-red); }
+        .benefit-item b { color: var(--brand-red); font-size: 1.2rem; font-family: 'Montserrat'; }
 
         /* --- 5. APPLICATION FORM --- */
-        #apply-container { max-width: 900px; margin: 0 auto; background: var(--bg-deep); border: 1px solid var(--border); padding: 60px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        #apply-container { max-width: 900px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border); padding: 60px; border-radius: 20px; }
         
         form { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
         .full-width { grid-column: span 2; }
@@ -109,15 +114,15 @@
         label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--text-gray); letter-spacing: 1px; }
         
         input, select, textarea {
-            background: #151515; border: 1px solid #222; padding: 15px; color: white; border-radius: 8px; font-size: 1rem; transition: 0.3s;
+            background: #050505; border: 1px solid #222; padding: 15px; color: white; border-radius: 8px; font-size: 1rem; transition: 0.3s;
         }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brand-red); background: #1a1a1a; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brand-red); background: #0a0a0a; }
         
         .submit-btn {
             grid-column: span 2; padding: 20px; background: var(--brand-red); border: none; color: white;
             font-weight: 700; font-size: 1.1rem; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s;
         }
-        .submit-btn:hover { background: var(--brand-red-dark); letter-spacing: 3px; }
+        .submit-btn:hover { background: var(--brand-red-dark); letter-spacing: 2px; box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3); }
 
         /* --- Footer --- */
         footer { padding: 50px; text-align: center; border-top: 1px solid var(--border); color: var(--text-gray); font-size: 0.8rem; }
@@ -127,16 +132,17 @@
             #about, form { grid-template-columns: 1fr; }
             .full-width, .submit-btn { grid-column: span 1; }
             nav ul { display: none; }
-            section { padding: 60px 5%; }
-            #apply-container { padding: 30px 20px; }
+            section { padding: 80px 5%; }
+            #apply-container { padding: 40px 20px; }
             .benefit-list { grid-template-columns: 1fr; }
+            #hero h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">FEARLESS FOOTSTEPS</div>
+        <div class="logo">Fearless Footsteps</div>
         <ul>
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -147,20 +153,20 @@
 
     <section id="hero">
         <h1>STAY FEARLESS.</h1>
-        <p>We are a global creative powerhouse looking for the next generation of digital disruptors.</p>
+        <p>We are a global creative powerhouse looking for the next generation of digital disruptors. Join the pack and leave your mark.</p>
         <a href="#apply" class="btn">Join Our Pack</a>
     </section>
 
     <section id="about">
         <div class="about-content">
             <h2>The <span>Vision</span></h2>
-            <p>Fearless Fox isn't just a studio; it's a movement. We create content that defines trends, shatters records, and captures the digital zeitgeist.</p>
-            <p>Our mission is to empower creators who aren't afraid to take risks and build something legendary.</p>
+            <p>Fearless Footsteps isn't just a studio; it's a movement. We create content that defines trends, shatters records, and captures the digital zeitgeist.</p>
+            <p>Our mission is to empower creators who aren't afraid to take risks and build something legendary in the digital space.</p>
         </div>
         <div class="about-stats">
             <div class="role-card">
                 <h3>500M+</h3>
-                <p>Global Reach</p>
+                <p>Global Reach & Impressions</p>
             </div>
         </div>
     </section>
@@ -170,15 +176,15 @@
         <div class="roles-grid">
             <div class="role-card">
                 <h3>Video Editor</h3>
-                <p>Master of storytelling through visuals. Proficient in Premiere Pro, After Effects, and pacing.</p>
+                <p>Master of storytelling through visuals. Proficient in Premiere Pro, After Effects, and high-retention pacing.</p>
             </div>
             <div class="role-card">
-                <h3>Influencer</h3>
-                <p>The face of the brand. Charismatic, creative, and ready to engage with millions of fans.</p>
+                <h3>Influencer / Talent</h3>
+                <p>The face of the brand. Charismatic, creative, and ready to engage with millions of fans across platforms.</p>
             </div>
             <div class="role-card">
                 <h3>Content Strategist</h3>
-                <p>Planning the next viral hit. Understanding algorithms and audience psychology.</p>
+                <p>Planning the next viral hit. Understanding algorithms, audience psychology, and data-driven trends.</p>
             </div>
         </div>
     </section>
@@ -197,55 +203,54 @@
         <h2 class="section-title">Ready to <span>Apply?</span></h2>
         <div id="apply-container">
             <form action="https://formsubmit.co/byteburial@gmail.com" method="POST">
+                <input type="text" name="_honey" style="display:none">
                 
                 <div class="field">
-                    <label>Name</label>
+                    <label>Full Name</label>
                     <input type="text" name="Name" placeholder="John Doe" required />
                 </div>
 
                 <div class="field">
-                    <label>Email</label>
+                    <label>Email Address</label>
                     <input type="email" name="Email" placeholder="john@example.com" required />
                 </div>
 
                 <div class="field">
-                    <label>Phone</label>
-                    <input type="text" name="Phone" placeholder="+91 00000 00000" required />
+                    <label>Phone Number</label>
+                    <input type="tel" name="Phone" placeholder="+91 00000 00000" required />
                 </div>
 
                 <div class="field">
-                    <label>Role</label>
+                    <label>Primary Role</label>
                     <select name="Role" required>
                         <option value="" disabled selected>Select your craft</option>
                         <option value="Video Editor">Video Editor</option>
-                        <option value="Influencer">Influencer</option>
+                        <option value="Influencer">Influencer / Talent</option>
+                        <option value="Strategist">Content Strategist</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div class="field full-width">
-                    <label>Insta And Facebook And linkdin Link (Any one)</label>
-                    <input type="url" name="Link" placeholder="https://..." required />
+                    <label>Social Portfolio Link (Instagram, LinkedIn, or Portfolio)</label>
+                    <input type="url" name="Portfolio_Link" placeholder="https://linkedin.com/in/yourprofile" required />
                 </div>
 
                 <div class="field full-width">
-                    <label>Your Story</label>
-                    <textarea name="Message" placeholder="For salary of 15k per month, which days / time range can you be available for the following: 
-
-Online work remotely creating reels & commenting: 
-
-Offline in-person assistance clicking pics @ sports facilities / conducting interviews / strategy discussions:"></textarea>
+                    <label>Your Availability & Story</label>
+                    <textarea name="Message" rows="6" placeholder="Tell us about yourself. Also, let us know your availability for:
+1. Remote work (Reels/Commenting)
+2. In-person assistance (Sports facilities/Interviews/Strategy)" required></textarea>
                 </div>
 
-                <input type="hidden" name="_replyto" value="byteburial@gmail.com">
                 <button type="submit" class="submit-btn">Submit Application</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 FEARLESS FOOTSTEP STUDIO. Designed for the bold.</p>
+        <p>© 2026 FEARLESS FOOTSTEPS STUDIO. Designed for the bold.</p>
     </footer>
 
 </body>
-</html>
+</html
