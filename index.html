@@ -85,8 +85,6 @@
         .about-content h2 { font-size: 3rem; margin-bottom: 20px; font-family: 'Montserrat'; }
         .about-content p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 20px; }
 
-        .about-stats .role-card { text-align: center; border-color: var(--brand-red); }
-
         /* --- 3. ROLES SECTION --- */
         .roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .role-card {
@@ -118,6 +116,8 @@
         }
         input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brand-red); background: #0a0a0a; }
         
+        .salary-note { background: rgba(255, 0, 0, 0.1); border: 1px dashed var(--brand-red); padding: 15px; border-radius: 8px; color: #ff9999; font-size: 0.85rem; margin-bottom: 10px; }
+
         .submit-btn {
             grid-column: span 2; padding: 20px; background: var(--brand-red); border: none; color: white;
             font-weight: 700; font-size: 1.1rem; border-radius: 8px; cursor: pointer; text-transform: uppercase; transition: 0.3s;
@@ -153,21 +153,19 @@
 
     <section id="hero">
         <h1>STAY FEARLESS.</h1>
-        <p>We are a global creative powerhouse looking for the next generation of digital disruptors. Join the pack and leave your mark.</p>
+        <p>A global creative powerhouse seeking the next generation of digital disruptors. Join our pack and redefine the zeitgeist.</p>
         <a href="#apply" class="btn">Join Our Pack</a>
     </section>
 
     <section id="about">
         <div class="about-content">
             <h2>The <span>Vision</span></h2>
-            <p>Fearless Footsteps isn't just a studio; it's a movement. We create content that defines trends, shatters records, and captures the digital zeitgeist.</p>
-            <p>Our mission is to empower creators who aren't afraid to take risks and build something legendary in the digital space.</p>
+            <p>Fearless Footsteps isn't just a studio; it's a movement. We create content that defines trends, shatters records, and captures the digital pulse of the planet.</p>
+            <p>We are looking for individuals who aren't afraid to take risks, hustle, and build something legendary.</p>
         </div>
-        <div class="about-stats">
-            <div class="role-card">
-                <h3>500M+</h3>
-                <p>Global Reach & Impressions</p>
-            </div>
+        <div class="role-card" style="text-align: center;">
+            <h3 style="font-size: 3rem;">500M+</h3>
+            <p>Global Impressions Achieved</p>
         </div>
     </section>
 
@@ -176,15 +174,15 @@
         <div class="roles-grid">
             <div class="role-card">
                 <h3>Video Editor</h3>
-                <p>Master of storytelling through visuals. Proficient in Premiere Pro, After Effects, and high-retention pacing.</p>
+                <p>Master of visual storytelling. Proficient in Premiere Pro, After Effects, and creating high-retention content.</p>
             </div>
             <div class="role-card">
                 <h3>Influencer / Talent</h3>
-                <p>The face of the brand. Charismatic, creative, and ready to engage with millions of fans across platforms.</p>
+                <p>The face of the brand. Charismatic, creative, and ready to engage with fans across all platforms.</p>
             </div>
             <div class="role-card">
                 <h3>Content Strategist</h3>
-                <p>Planning the next viral hit. Understanding algorithms, audience psychology, and data-driven trends.</p>
+                <p>Planning viral hits. Experts in algorithms, audience psychology, and data-driven trends.</p>
             </div>
         </div>
     </section>
@@ -194,7 +192,7 @@
         <div class="benefit-list">
             <div class="benefit-item"><b>01</b> Creative Freedom</div>
             <div class="benefit-item"><b>02</b> Global Exposure</div>
-            <div class="benefit-item"><b>03</b> Competitive Pay</div>
+            <div class="benefit-item"><b>03</b> Growth Path</div>
             <div class="benefit-item"><b>04</b> Elite Networking</div>
         </div>
     </section>
@@ -203,8 +201,10 @@
         <h2 class="section-title">Ready to <span>Apply?</span></h2>
         <div id="apply-container">
             <form action="https://formsubmit.co/byteburial@gmail.com" method="POST">
-                <input type="text" name="_honey" style="display:none">
                 
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_subject" value="New Job Application - Fearless Footsteps">
+
                 <div class="field">
                     <label>Full Name</label>
                     <input type="text" name="Name" placeholder="John Doe" required />
@@ -221,7 +221,7 @@
                 </div>
 
                 <div class="field">
-                    <label>Primary Role</label>
+                    <label>Role</label>
                     <select name="Role" required>
                         <option value="" disabled selected>Select your craft</option>
                         <option value="Video Editor">Video Editor</option>
@@ -232,15 +232,24 @@
                 </div>
 
                 <div class="field full-width">
-                    <label>Social Portfolio Link (Instagram, LinkedIn, or Portfolio)</label>
-                    <input type="url" name="Portfolio_Link" placeholder="https://linkedin.com/in/yourprofile" required />
+                    <label>Portfolio Link (Instagram / Facebook / LinkedIn)</label>
+                    <input type="url" name="Social_Link" placeholder="https://..." required />
                 </div>
 
                 <div class="field full-width">
-                    <label>Your Availability & Story</label>
-                    <textarea name="Message" rows="6" placeholder="Tell us about yourself. Also, let us know your availability for:
-1. Remote work (Reels/Commenting)
-2. In-person assistance (Sports facilities/Interviews/Strategy)" required></textarea>
+                    <div class="salary-note">
+                        <strong>Budget:</strong> ₹15,000 per month. Please provide your availability below.
+                    </div>
+                    <label>Availability & Story</label>
+                    <textarea name="Availability_and_Story" rows="10" required 
+placeholder="1. ONLINE REMOTE WORK: (Creating reels/commenting)
+What days and time ranges are you available?
+
+2. OFFLINE IN-PERSON: (Photos at sports facilities, interviews, strategy)
+What days and time ranges are you available?
+
+3. YOUR STORY: 
+Briefly, why should we choose you?"></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">Submit Application</button>
@@ -253,4 +262,4 @@
     </footer>
 
 </body>
-</html
+</html>
