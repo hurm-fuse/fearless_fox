@@ -1,365 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FEARLESS FOOTSTEPS | Build Something Legendary</title>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+        /* 1. Variables - Rang aur Settings */
         :root {
-            --brand-red: #E60000;
-            --brand-red-hover: #BF0000;
-            --bg-white: #FFFFFF;
-            --bg-light: #F9F9F9;
-            --text-dark: #000000;
-            --text-gray: #555555;
-            --border-color: #E0E0E0;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --red: #E60000;
+            --dark: #111111;
+            --light: #F4F4F4;
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-white);
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* --- HERO SECTION --- */
+        /* 2. Reset & Basics */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--dark); line-height: 1.6; }
+        
+        /* 3. Hero Section */
         #hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: #fff;
             text-align: center;
+            background: var(--white);
             padding: 20px;
         }
 
         #hero h1 {
-            font-family: 'Montserrat';
-            font-size: clamp(3.5rem, 12vw, 9rem);
-            font-weight: 900;
-            line-height: 0.8;
-            color: var(--brand-red);
-            text-transform: uppercase;
-            letter-spacing: -4px;
-            margin-bottom: 40px;
-            animation: fadeInDown 1s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(3rem, 15vw, 8rem);
+            color: var(--red);
+            line-height: 0.9;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
         }
 
         .btn {
-            padding: 20px 60px;
-            background: var(--text-dark);
-            color: white;
+            padding: 18px 45px;
+            background: var(--dark);
+            color: var(--white);
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: var(--transition);
+            border-radius: 4px;
         }
 
-        .btn:hover {
-            background: var(--brand-red);
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(230, 0, 0, 0.2);
-        }
+        .btn:hover { background: var(--red); transform: translateY(-3px); }
 
-        /* --- ABOUT US SECTION --- */
+        /* 4. About Section */
         #about {
-            padding: 120px 10%;
-            background-color: var(--text-dark);
-            color: var(--bg-white);
+            padding: 100px 10%;
+            background: var(--dark);
+            color: var(--white);
             text-align: center;
         }
 
-        .about-content {
-            max-width: 900px;
-            margin: auto;
-        }
+        .about-content { max-width: 800px; margin: auto; }
+        .about-content p { font-size: 1.3rem; font-weight: 300; }
+        .highlight { color: var(--red); font-weight: 700; border-bottom: 2px solid var(--red); }
 
-        .about-label {
-            color: var(--brand-red);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        #about h2 {
-            font-family: 'Montserrat';
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.2;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        #about p {
-            font-size: 1.2rem;
-            color: #ccc;
-            line-height: 1.8;
-            font-weight: 300;
-        }
-
-        #about .highlight {
-            color: var(--bg-white);
-            font-weight: 600;
-            border-bottom: 2px solid var(--brand-red);
-        }
-
-        /* --- FORM SECTION --- */
-        #apply {
-            padding: 100px 5%;
-            background-color: var(--bg-light);
-        }
-
+        /* 5. Form Section */
+        #apply { padding: 80px 5%; background: var(--light); }
+        
         #apply-container {
-            max-width: 1000px;
-            margin: -60px auto 0;
-            background: var(--bg-white);
-            padding: 60px;
-            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
+            max-width: 900px;
+            margin: -100px auto 0; /* Hero ke upar overlap */
+            background: var(--white);
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 8px;
         }
 
-        .form-header {
-            margin-bottom: 50px;
-            text-align: center;
-        }
+        form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-        .form-header h2 {
-            font-family: 'Montserrat';
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* Full width elements */
+        .full-width { grid-column: span 2; }
 
-        .red-line {
-            width: 80px;
-            height: 6px;
-            background: var(--brand-red);
-            margin: 15px auto;
-        }
-
-        form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .full-width {
-            grid-column: span 2;
-        }
-
-        .social-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            grid-column: span 2;
-        }
-
-        .field {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 800;
-        }
-
-        label span {
-            color: #999;
-            font-weight: 400;
-            font-style: italic;
-            text-transform: none;
-        }
-
-        input,
-        textarea {
-            border: 2px solid var(--border-color);
-            padding: 18px;
+        .field { display: flex; flex-direction: column; gap: 5px; }
+        label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #666; }
+        
+        input, textarea {
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 5px;
             font-size: 1rem;
+            font-family: inherit;
             transition: var(--transition);
-            width: 100%;
         }
 
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--brand-red);
-        }
+        input:focus, textarea:focus { outline: none; border-color: var(--red); }
 
-        /* Role Checkboxes */
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 10px;
-        }
-
+        /* Checkbox Styling */
+        .checkbox-group { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
         .check-item {
             display: flex;
             align-items: center;
-            padding: 18px;
-            background: #fff;
-            border: 1px solid #eee;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .check-item:hover {
-            border-color: var(--brand-red);
-            background: #fff8f8;
-        }
-
-        .check-item input {
-            margin-right: 15px;
-            width: 22px;
-            height: 22px;
-            accent-color: var(--brand-red);
+            border: 1px solid #eee;
         }
 
         .salary-tag {
-            background: var(--brand-red);
+            background: var(--red);
             color: white;
-            padding: 4px 12px;
+            padding: 2px 8px;
             font-size: 0.7rem;
-            font-weight: 900;
-            margin-right: 15px;
-            text-transform: uppercase;
-            display: inline-block;
-            min-width: 110px;
-            text-align: center;
+            font-weight: 700;
+            margin-right: 10px;
+            border-radius: 3px;
         }
 
+        /* Submit Button */
         .submit-btn {
             grid-column: span 2;
-            padding: 25px;
-            background: var(--brand-red);
-            border: none;
+            padding: 20px;
+            background: var(--red);
             color: white;
-            font-weight: 900;
-            font-size: 1.3rem;
+            border: none;
+            font-weight: 800;
+            font-size: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
             cursor: pointer;
             transition: var(--transition);
-            margin-top: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
         }
 
-        .submit-btn:hover {
-            background: var(--text-dark);
-            letter-spacing: 6px;
-        }
+        .submit-btn:hover { background: var(--dark); letter-spacing: 2px; }
 
-        /* --- FOOTER SECTION --- */
-        footer {
-            background: #000;
-            color: #fff;
-            padding: 80px 10% 40px;
-            border-top: 8px solid var(--brand-red);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Montserrat';
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--brand-red);
-            margin-bottom: 20px;
-        }
-
-        .footer-text {
-            color: #888;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .footer-links h4 {
-            font-family: 'Montserrat';
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: #888;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--brand-red);
-            padding-left: 5px;
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 80px;
-            padding-top: 30px;
-            border-top: 1px solid #222;
-            color: #444;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- RESPONSIVE --- */
+        /* 6. Responsive (Mobile) */
         @media (max-width: 768px) {
-            #apply-container { padding: 40px 20px; margin-top: 0; }
             form { grid-template-columns: 1fr; }
-            .full-width, .submit-btn, .social-grid { grid-column: span 1; }
-            .social-grid { grid-template-columns: 1fr; }
-            #hero h1 { font-size: 3.5rem; }
-            #about { padding: 80px 5%; }
-            footer { padding: 60px 5% 30px; }
+            .full-width, .submit-btn { grid-column: span 1; }
+            #apply-container { margin-top: 20px; padding: 25px; }
+            #hero h1 { font-size: 4rem; }
         }
     </style>
 </head>
-
 <body>
 
     <section id="hero">
@@ -370,84 +157,52 @@
     <section id="about">
         <div class="about-content">
             <p>
-                Fearless Footsteps isn’t just about affiliate marketing. We share & create
-                <span class="highlight">catchy content</span>. We are looking for diligent individuals who
-                are not afraid to take risks—those who are ready to build something legendary.
+                Fearless Footsteps isn’t just about marketing. We create 
+                <span class="highlight">legendary content</span>. We need risk-takers ready to build the future.
             </p>
         </div>
     </section>
 
     <section id="apply">
         <div id="apply-container">
-            <form action="https://formsubmit.co/manuel.carrillo.gonzalez.1964@gmail.com" method="POST">
-
-                <input type="text" name="_honey" style="display:none">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="🔥 NEW APPLICATION: Fearless Footsteps">
-
+            <form action="https://formsubmit.co/your-email@gmail.com" method="POST">
+                
                 <div class="field">
                     <label>Name / Nickname</label>
-                    <input type="text" name="Name" placeholder="Name / Nickname" required>
+                    <input type="text" name="Name" placeholder="Enter your name" required>
                 </div>
 
                 <div class="field">
-                    <label>Email</label>
-                    <input type="email" name="Email" placeholder="Email" required>
+                    <label>Email Address</label>
+                    <input type="email" name="Email" placeholder="Enter your email" required>
                 </div>
 
                 <div class="field full-width">
-                    <label>Desired Roles (select all that apply):</label>
+                    <label>Choose Your Role</label>
                     <div class="checkbox-group">
                         <label class="check-item">
-                            <input type="checkbox" name="Role[]" value="Sports-Facilities & Gym Assistance">
-                            <span><span class="salary-tag">1k Paid Trial</span> Assistance @ sports-facilities & Gym</span>
+                            <input type="checkbox" name="Role[]" value="Gym Assistance"> 
+                            <span class="salary-tag">1k Paid Trial</span> Gym Assistance
                         </label>
                         <label class="check-item">
-                            <input type="checkbox" name="Role[]" value="Mall Interviewer">
-                            <span><span class="salary-tag">1k Paid Audition</span> Interview movie-goers @ Mall</span>
+                            <input type="checkbox" name="Role[]" value="Mall Interviewer"> 
+                            <span class="salary-tag">1k Paid Audition</span> Mall Interviewer
                         </label>
                         <label class="check-item">
-                            <input type="checkbox" name="Role[]" value="Hotel & Salon Reviewer">
-                            <span><span class="salary-tag">1k Paid Trial</span> Review Restaurant & Salon @ 5-star Hotel</span>
-                        </label>
-                        <label class="check-item">
-                            <input type="checkbox" name="Role[]" value="Content Creation Assistant">
-                            <span><span class="salary-tag">15k Monthly</span> Salary for Content Creation Assistant</span>
+                            <input type="checkbox" name="Role[]" value="Content Creator"> 
+                            <span class="salary-tag">15k Monthly</span> Content Assistant
                         </label>
                     </div>
                 </div>
 
                 <div class="field full-width">
-                    <label>Do you have experience with gym weight-training? If so, what are your fav exercise?</label>
-                    <textarea name="Gym Experience" rows="2"
-                        placeholder="Describe your gym routine and favorite lifts..."></textarea>
-                </div>
-
-                <div class="field full-width">
-                    <label>Do you have experience playing a sport? If so, which sport / extent of your experience?</label>
-                    <textarea name="Sports Experience" rows="2"
-                        placeholder="Sports played, years of experience, or any achievements..."></textarea>
-                </div>
-
-                <div class="social-grid">
-                    <div class="field">
-                        <label>Instagram <span>(Optional)</span></label>
-                        <input type="url" name="Instagram" placeholder="Profile URL">
-                    </div>
-                    <div class="field">
-                        <label>YouTube <span>(Optional)</span></label>
-                        <input type="url" name="YouTube" placeholder="Channel URL">
-                    </div>
-                    <div class="field">
-                        <label>LinkedIn <span>(Optional)</span></label>
-                        <input type="url" name="LinkedIn" placeholder="Profile URL">
-                    </div>
+                    <label>Gym/Sports Experience</label>
+                    <textarea name="Experience" rows="3" placeholder="Tell us about your fitness background..."></textarea>
                 </div>
 
                 <div class="field full-width">
                     <label>Availability</label>
-                    <textarea name="Availability" rows="2" placeholder="Which days and times are you available to work?"
-                        required></textarea>
+                    <input type="text" name="Availability" placeholder="e.g. Mon-Fri, 4pm to 8pm" required>
                 </div>
 
                 <div class="field full-width">
@@ -455,11 +210,10 @@
                     <textarea name="Story" rows="4" placeholder="What makes you fearless?" required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Submit Application</button>
-
+                <button type="submit" class="submit-btn">Send Application</button>
             </form>
         </div>
     </section>
-</body>
 
+</body>
 </html>
