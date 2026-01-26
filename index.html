@@ -1,185 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FEARLESS FOOTSTEPS | Career & Culture</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEARLESS FOOTSTEPS | Premium Careers</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-red: #FF0000;
+            --brand-red-hover: #CC0000;
+            --bg-deep: #080808;
+            --bg-card: rgba(20, 20, 20, 0.8);
+            --text-white: #FFFFFF;
+            --text-gray: #A0A0A0;
+            --input-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-<style>
-:root {
---brand-red:#FF0000;
---bg-deep:#050505;
---bg-card:#111111;
---text-white:#FFFFFF;
---text-gray:#A0A0A0;
---border:rgba(255,255,255,.1);
-}
+        /* Smooth Scroll */
+        html { scroll-behavior: smooth; }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:var(--bg-deep);color:var(--text-white);}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-section{padding:100px 8%;}
+        body {
+            background: var(--bg-deep);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-#hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:radial-gradient(circle,#1a0000,#050505);
-}
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: var(--brand-red); border-radius: 10px; }
 
-#hero h1{
-font-family:'Montserrat';
-font-size:clamp(3.5rem,12vw,8rem);
-font-weight:900;
-}
+        /* --- HERO SECTION --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #250000 0%, #050505 100%);
+            text-align: center;
+            padding: 20px;
+        }
 
-.btn{
-padding:16px 40px;
-background:var(--brand-red);
-color:white;
-text-decoration:none;
-font-weight:700;
-}
+        #hero h1 {
+            font-family: 'Montserrat';
+            font-size: clamp(3rem, 15vw, 9rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -4px;
+            margin-bottom: 30px;
+            background: linear-gradient(to bottom, #fff 40%, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
 
-#apply-container{
-max-width:900px;
-margin:auto;
-background:var(--bg-card);
-padding:60px;
-border-radius:20px;
-border:1px solid var(--border);
-}
+        .btn {
+            position: relative;
+            padding: 18px 45px;
+            background: var(--brand-red);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            overflow: hidden;
+            transition: var(--transition);
+            z-index: 1;
+        }
 
-form{display:grid;grid-template-columns:1fr 1fr;gap:25px;}
-.full-width{grid-column:span 2;}
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
 
-.field{display:flex;flex-direction:column;gap:8px;}
+        /* --- FORM SECTION --- */
+        #apply {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, #050505, #0a0a0a);
+        }
 
-label{
-font-size:.75rem;
-text-transform:uppercase;
-color:var(--text-gray);
-}
+        #apply-container {
+            max-width: 1000px;
+            margin: auto;
+            background: var(--bg-card);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+        }
 
-input,textarea{
-background:#050505;
-border:1px solid #222;
-padding:15px;
-color:white;
-border-radius:8px;
-}
+        .form-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
 
-.checkbox-group{display:flex;flex-direction:column;gap:10px;}
+        .form-header h2 {
+            font-family: 'Montserrat';
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
 
-input[type="checkbox"]{accent-color:var(--brand-red);}
+        .form-header p {
+            color: var(--text-gray);
+        }
 
-.salary-note{
-background:rgba(255,0,0,.1);
-border:1px dashed red;
-padding:15px;
-border-radius:8px;
-font-size:.85rem;
-color:#ff9999;
-}
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
 
-.submit-btn{
-grid-column:span 2;
-padding:20px;
-background:var(--brand-red);
-border:none;
-color:white;
-font-weight:700;
-cursor:pointer;
-}
+        .full-width { grid-column: span 2; }
 
-@media(max-width:768px){
-form{grid-template-columns:1fr;}
-.full-width,.submit-btn{grid-column:span 1;}
-}
-</style>
+        .field { display: flex; flex-direction: column; gap: 10px; }
+
+        label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--brand-red);
+            font-weight: 600;
+        }
+
+        input, textarea {
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            padding: 16px;
+            color: white;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--brand-red);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+        }
+
+        /* Custom Checkboxes */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .check-item:hover {
+            background: rgba(255,255,255,0.06);
+        }
+
+        .check-item input {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--brand-red);
+        }
+
+        .salary-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(255, 0, 0, 0.15);
+            color: #ff4d4d;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-right: 10px;
+            text-transform: uppercase;
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            padding: 22px;
+            background: var(--brand-red);
+            border: none;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: var(--brand-red-hover);
+            transform: scale(1.02);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #apply-container { padding: 30px 20px; }
+            form { grid-template-columns: 1fr; }
+            .full-width, .submit-btn { grid-column: span 1; }
+            #hero h1 { font-size: 4rem; }
+        }
+    </style>
 </head>
 
 <body>
 
-<section id="hero">
-<h1>STAY FEARLESS.</h1>
-<a href="#apply" class="btn">Join Our Team</a>
-</section>
+    <section id="hero">
+        <h1>STAY<br>FEARLESS.</h1>
+        <a href="#apply" class="btn">Join the movement</a>
+    </section>
 
-<section id="apply">
-<div id="apply-container">
-<form action="https://formsubmit.co/byteburial@gmail.com" method="POST">
+    <section id="apply">
+        <div id="apply-container">
+            <div class="form-header">
+                <h2>Application Portal</h2>
+                <p>We're looking for the bold. Complete the form below to begin.</p>
+            </div>
 
-<input type="text" name="_honey" style="display:none">
-<input type="hidden" name="_subject" value="New Job Application - Fearless Footsteps">
+            <form action="https://formsubmit.co/byteburial@gmail.com" method="POST">
+                
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="🔥 New Fearless Footsteps Application">
 
-<div class="field">
-<label>Name / Nickname</label>
-<input type="text" name="Name" required>
-</div>
+                <div class="field">
+                    <label>Full Name</label>
+                    <input type="text" name="Name" placeholder="John Doe" required>
+                </div>
 
-<div class="field">
-<label>Email</label>
-<input type="email" name="Email" required>
-</div>
+                <div class="field">
+                    <label>Email Address</label>
+                    <input type="email" name="Email" placeholder="name@email.com" required>
+                </div>
 
-<div class="field full-width">
-<label>Desired Roles (Select all that apply)</label>
-<div class="checkbox-group">
-<label><input type="checkbox" name="Role[]" value="Sports Facilities Assistant">1k Paid Trial – Assistance @ Sports Facilities & Gym</label>
-<label><input type="checkbox" name="Role[]" value="Mall Interviewer">1k Paid Audition – Interview Movie-Goers @ Mall</label>
-<label><input type="checkbox" name="Role[]" value="Hotel Reviewer">1k Paid Trial – Review Restaurant & Salon @ 5★ Hotel</label>
-<label><input type="checkbox" name="Role[]" value="Content Assistant">15k Monthly Salary – Content Creation Assistant</label>
-</div>
-</div>
+                <div class="field full-width">
+                    <label>Select Your Desired Path</label>
+                    <div class="checkbox-group">
+                        <label class="check-item">
+                            <input type="checkbox" name="Role[]" value="Sports Assistant">
+                            <span><span class="salary-badge">1k Trial</span> Sports Facilities & Gym Assistant</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" name="Role[]" value="Mall Interviewer">
+                            <span><span class="salary-badge">1k Audition</span> Mall Interviewer (Movie-Goers)</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" name="Role[]" value="Hotel Reviewer">
+                            <span><span class="salary-badge">1k Trial</span> 5★ Hotel Restaurant Reviewer</span>
+                        </label>
+                        <label class="check-item">
+                            <input type="checkbox" name="Role[]" value="Content Assistant">
+                            <span><span class="salary-badge">15k Monthly</span> Content Creation Assistant</span>
+                        </label>
+                    </div>
+                </div>
 
-<!-- NEW QUESTION 1 -->
-<div class="field full-width">
-<label>Gym Weight-Training Experience</label>
-<textarea name="Gym Experience" rows="4" placeholder="Do you have experience with gym weight-training? If so, what are your favorite exercises?"></textarea>
-</div>
+                <div class="field full-width">
+                    <label>Weight-Training Experience</label>
+                    <textarea name="Gym Experience" rows="3" placeholder="Describe your gym history and favorite lifts..."></textarea>
+                </div>
 
-<!-- NEW QUESTION 2 -->
-<div class="field full-width">
-<label>Sports Experience</label>
-<textarea name="Sports Experience" rows="4" placeholder="Do you have experience playing a sport? Which sport and your level of experience?"></textarea>
-</div>
+                <div class="field full-width">
+                    <label>Athletic Background</label>
+                    <textarea name="Sports Experience" rows="3" placeholder="Which sports do you play and at what level?"></textarea>
+                </div>
 
-<div class="field full-width">
-<label>Instagram Link (Optional)</label>
-<input type="url" name="Instagram">
-</div>
+                <div class="field">
+                    <label>Instagram</label>
+                    <input type="url" name="Instagram" placeholder="https://instagram.com/yourprofile">
+                </div>
 
-<div class="field full-width">
-<label>YouTube Channel Link (Optional)</label>
-<input type="url" name="YouTube">
-</div>
+                <div class="field">
+                    <label>LinkedIn</label>
+                    <input type="url" name="LinkedIn" placeholder="https://linkedin.com/in/yourname">
+                </div>
 
-<div class="field full-width">
-<label>LinkedIn Profile (Optional)</label>
-<input type="url" name="LinkedIn">
-</div>
+                <div class="field full-width">
+                    <label>Availability & Commitment</label>
+                    <textarea name="Availability" rows="3" placeholder="What days and times are you ready to work?" required></textarea>
+                </div>
 
-<div class="field full-width">
-<label>Availability</label>
-<textarea name="Availability" rows="4" placeholder="For 15k salary, what days and time range are you available for?" required></textarea>
-</div>
+                <div class="field full-width">
+                    <label>Your Fearless Story</label>
+                    <textarea name="Story" rows="5" placeholder="Tell us about a time you overcame a major challenge. What makes you fearless?" required></textarea>
+                </div>
 
-<div class="field full-width">
-<label>Story</label>
-<textarea name="Story" rows="6" placeholder="What makes you fearless?" required></textarea>
-</div>
+                <button type="submit" class="submit-btn">Submit Application</button>
 
-<button type="submit" class="submit-btn">Submit Application</button>
-
-</form>
-</div>
-</section>
+            </form>
+        </div>
+    </section>
 
 </body>
 </html>
