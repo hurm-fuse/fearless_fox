@@ -21,9 +21,9 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-white); color: var(--text-dark); }
+        body { background-color: var(--bg-white); color: var(--text-dark); overflow-x: hidden; }
 
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         #hero {
             height: 100vh;
             display: flex;
@@ -44,6 +44,7 @@
             text-transform: uppercase;
             letter-spacing: -4px;
             margin-bottom: 40px;
+            animation: fadeInDown 1s ease;
         }
 
         .btn {
@@ -57,9 +58,13 @@
             transition: var(--transition);
         }
 
-        .btn:hover { background: var(--brand-red); transform: scale(1.05); }
+        .btn:hover {
+            background: var(--brand-red);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(230, 0, 0, 0.2);
+        }
 
-        /* --- ABOUT US --- */
+        /* --- ABOUT US SECTION --- */
         #about {
             padding: 120px 10%;
             background-color: var(--text-dark);
@@ -99,12 +104,12 @@
             border-bottom: 2px solid var(--brand-red);
         }
 
-        /* --- FORM --- */
+        /* --- FORM SECTION --- */
         #apply { padding: 100px 5%; background-color: var(--bg-light); }
 
         #apply-container {
             max-width: 1000px;
-            margin: -60px auto 0;
+            margin: -60px auto 0; /* Modern overlap */
             background: var(--bg-white);
             padding: 60px;
             box-shadow: 0 50px 100px rgba(0,0,0,0.1);
@@ -113,12 +118,19 @@
         }
 
         .form-header { margin-bottom: 50px; text-align: center; }
-        .form-header h2 { font-family: 'Montserrat'; font-size: 2.5rem; text-transform: uppercase; }
+        .form-header h2 { font-family: 'Montserrat'; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 1px; }
         .red-line { width: 80px; height: 6px; background: var(--brand-red); margin: 15px auto; }
 
         form { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .full-width { grid-column: span 2; }
-        .social-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; grid-column: span 2; }
+        
+        /* Grid for social links */
+        .social-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 20px; 
+            grid-column: span 2; 
+        }
 
         .field { display: flex; flex-direction: column; gap: 8px; }
 
@@ -141,12 +153,12 @@
 
         input:focus, textarea:focus { outline: none; border-color: var(--brand-red); }
 
-        /* Role Cards */
-        .checkbox-group { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
+        /* Role Checkboxes */
+        .checkbox-group { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
         .check-item {
             display: flex;
             align-items: center;
-            padding: 20px;
+            padding: 18px;
             background: #fff;
             border: 1px solid #eee;
             cursor: pointer;
@@ -177,18 +189,62 @@
             letter-spacing: 4px;
             cursor: pointer;
             transition: var(--transition);
+            margin-top: 20px;
         }
 
         .submit-btn:hover { background: var(--text-dark); letter-spacing: 6px; }
 
-        /* Responsive */
+        /* --- FOOTER SECTION --- */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 80px 10% 40px;
+            border-top: 8px solid var(--brand-red);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-brand h3 { font-family: 'Montserrat'; font-size: 1.8rem; font-weight: 900; color: var(--brand-red); margin-bottom: 20px; }
+        .footer-text { color: #888; font-size: 0.95rem; line-height: 1.6; }
+        
+        .footer-links h4 { font-family: 'Montserrat'; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; font-size: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 15px; }
+        .footer-links a { color: #888; text-decoration: none; transition: 0.3s; }
+        .footer-links a:hover { color: var(--brand-red); padding-left: 5px; }
+
+        .copyright {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: #444;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             #apply-container { padding: 40px 20px; margin-top: 0; }
             form { grid-template-columns: 1fr; }
             .full-width, .submit-btn, .social-grid { grid-column: span 1; }
             .social-grid { grid-template-columns: 1fr; }
-            #hero h1 { font-size: 4rem; }
+            #hero h1 { font-size: 3.8rem; }
             #about { padding: 80px 5%; }
+            footer { padding: 60px 5% 30px; }
         }
     </style>
 </head>
@@ -197,17 +253,20 @@
 
     <section id="hero">
         <h1>STAY<br>FEARLESS.</h1>
-        <a href="#about" class="btn">Join The Team</a>
+        <a href="#about" class="btn">Explore More</a>
     </section>
 
     <section id="about">
         <div class="about-content">
             <span class="about-label">About Us</span>
+            <h2>Build Something <span class="highlight">Legendary</span></h2>
             <p>
                 Fearless Footsteps isn’t just about affiliate marketing. We share & create 
                 <span class="highlight">catchy content</span>. We are looking for diligent individuals who 
-                are not afraid to take risks—those who want to <span class="highlight">build something legendary</span>.
+                are not afraid to take risks—those who are ready to break boundaries.
             </p>
+            <br><br>
+            <a href="#apply" style="color: var(--brand-red); text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">↓ Join The Team</a>
         </div>
     </section>
 
@@ -222,10 +281,11 @@
                 
                 <input type="text" name="_honey" style="display:none">
                 <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="🔥 NEW APPLICATION: Fearless Footsteps">
 
                 <div class="field">
                     <label>Full Name</label>
-                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="text" name="Name" placeholder="Full Name" required>
                 </div>
 
                 <div class="field">
@@ -257,27 +317,27 @@
 
                 <div class="field full-width">
                     <label>Gym & Weight-Training Experience</label>
-                    <textarea name="Gym Experience" rows="2" placeholder="Tell us about your fitness background..."></textarea>
+                    <textarea name="Gym Experience" rows="2" placeholder="Tell us about your fitness history..."></textarea>
                 </div>
 
                 <div class="social-grid">
                     <div class="field">
                         <label>Instagram <span>(Optional)</span></label>
-                        <input type="url" name="Instagram" placeholder="Profile URL">
+                        <input type="url" name="Instagram" placeholder="Link">
                     </div>
                     <div class="field">
                         <label>YouTube <span>(Optional)</span></label>
-                        <input type="url" name="YouTube" placeholder="Channel URL">
+                        <input type="url" name="YouTube" placeholder="Link">
                     </div>
                     <div class="field">
                         <label>LinkedIn <span>(Optional)</span></label>
-                        <input type="url" name="LinkedIn" placeholder="Profile URL">
+                        <input type="url" name="LinkedIn" placeholder="Link">
                     </div>
                 </div>
 
                 <div class="field full-width">
                     <label>Availability</label>
-                    <textarea name="Availability" rows="2" placeholder="Mention your free days/hours..." required></textarea>
+                    <textarea name="Availability" rows="2" placeholder="Days and times you can work..." required></textarea>
                 </div>
 
                 <div class="field full-width">
@@ -290,6 +350,31 @@
             </form>
         </div>
     </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>FEARLESS FOOTSTEPS</h3>
+                <p class="footer-text">Building a generation of risk-takers and legendary creators. Not just a company, but a movement.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#apply">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <p class="footer-text">Direct Inquiries:</p>
+                <p style="color: #fff; font-weight: 600; margin-top: 5px;">byteburial@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Fearless Footsteps. All Rights Reserved.
+        </div>
+    </footer>
 
 </body>
 </html>
