@@ -32,12 +32,10 @@
             background-color: var(--white);
             color: var(--black);
             line-height: 1.6;
-            overflow-x: hidden;
             padding-top: 70px;
-            /* Space for fixed navbar */
         }
 
-        /* --- NAVBAR START --- */
+        /* --- NAVBAR --- */
         nav {
             background-color: var(--white);
             height: 70px;
@@ -56,85 +54,77 @@
         .logo {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--primary-red);
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: -1px;
+            z-index: 1001;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 20px;
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--black);
+        .nav-links li {
             font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            font-size: 0.8rem;
+            color: var(--black);
         }
 
-        .nav-links a:hover {
-            color: var(--primary-red);
-        }
-
-        /* --- NAVBAR END --- */
-
-        /* 2. Hero Section */
+        /* --- HERO SECTION --- */
         #hero {
-            height: calc(100vh - 70px);
+            min-height: calc(100vh - 70px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: var(--dark-red);
-            padding: 10px;
+            padding: 40px 20px;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80') center/cover;
         }
 
         #hero h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-size: clamp(3rem, 15vw, 7rem);
             font-weight: 900;
-            line-height: 0.9;
+            line-height: 0.85;
             letter-spacing: -2px;
             margin-bottom: 30px;
+            color: var(--dark-red);
             text-transform: uppercase;
         }
 
         .btn {
             background-color: var(--primary-red);
             color: var(--white);
-            padding: 18px 40px;
+            padding: 16px 32px;
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 5px;
             transition: 0.3s ease;
-            border: 2px solid var(--primary-red);
+            display: inline-block;
         }
 
         .btn:hover {
-            background-color: var(--dark-red);
-            border-color: var(--dark-red);
+            background-color: var(--black);
+            transform: translateY(-3px);
         }
 
-        /* 3. About Section */
+        /* --- ABOUT SECTION --- */
         #about {
-            padding: 100px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background-color: var(--white);
         }
 
         .about-content {
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .highlight {
@@ -143,32 +133,31 @@
             border-bottom: 3px solid var(--primary-red);
         }
 
-        /* 4. Application Form Section */
+        /* --- FORM SECTION --- */
         #apply {
             background-color: var(--light-gray);
-            padding: 80px 20px;
+            padding: 60px 15px;
         }
 
         #apply-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             background: var(--white);
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border-top: 8px solid var(--primary-red);
         }
 
         .field {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .field label {
             display: block;
             font-weight: 700;
             margin-bottom: 8px;
-            color: var(--black);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
         }
 
@@ -177,106 +166,123 @@
         input[type="url"],
         textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
+            padding: 12px;
+            border: 2px solid #eee;
             border-radius: 6px;
             font-family: inherit;
-            transition: 0.3s;
+            font-size: 1rem;
         }
 
-        input:focus,
-        textarea:focus {
-            border-color: var(--primary-red);
-            outline: none;
-        }
-
-        /* Checkbox Styling */
+        /* Checkbox Group */
         .checkbox-group {
-            display: grid;
-            gap: 15px;
-            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .check-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             background: #fff;
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 15px;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
         }
 
         .check-item:hover {
             border-color: var(--primary-red);
-            background-color: #fff5f5;
         }
 
         .check-item input {
+            margin-top: 5px;
             margin-right: 15px;
+            min-width: 18px;
+            min-height: 18px;
             accent-color: var(--primary-red);
-            transform: scale(1.3);
+        }
+
+        .check-item span {
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
         .salary-tag {
             background: var(--primary-red);
             color: white;
-            padding: 2px 8px;
-            font-size: 0.75rem;
+            padding: 2px 6px;
+            font-size: 0.7rem;
             border-radius: 4px;
+            font-weight: 900;
             margin-right: 5px;
-            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 4px;
         }
 
-        /* Social Grid */
+        /* Social Media Grid */
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
         }
 
-        /* Submit Button */
         .submit-btn {
             width: 100%;
             background-color: var(--black);
             color: var(--white);
-            padding: 20px;
+            padding: 18px;
             border: none;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             border-radius: 6px;
             transition: 0.3s;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
             background-color: var(--primary-red);
-            letter-spacing: 2px;
         }
 
-        /* 5. Responsive Adjustments */
-        @media (max-width: 600px) {
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        
+        /* Tablets and below */
+        @media (max-width: 768px) {
             nav {
-                padding: 0 20px;
+                padding: 0 15px;
             }
-
-            .nav-links {
-                gap: 15px;
+            .logo {
+                font-size: 1rem;
             }
-
-            .nav-links a {
-                font-size: 0.75rem;
-            }
-
             #apply-container {
-                padding: 25px 15px;
+                padding: 20px;
             }
+            .nav-links li {
+                font-size: 0.65rem;
+            }
+        }
 
+        /* Mobile Phones */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+            nav {
+                height: 60px;
+            }
             #hero h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+            .about-content {
+                font-size: 1rem;
+            }
+            .check-item span {
+                font-size: 0.85rem;
+            }
+            .field label {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -285,9 +291,9 @@
 <body>
 
     <nav>
-        <a href="https://fearlessfootsteps.com" class="logo">FEARLESS FOOTSTEP</a>
+        <a href="https://fearlessfootsteps.com" class="logo">FEARLESS FOOTSTEPS</a>
         <ul class="nav-links">
-            <li><a>GST: 06ADFPM7859K1ZY</a></li>
+            <li>GST: 06ADFPM7859K1ZY</li>
         </ul>
     </nav>
 
@@ -316,89 +322,83 @@
 
                 <div class="field">
                     <label>Name / Nickname</label>
-                    <input type="text" name="Name" placeholder="Name / Nickname" required>
+                    <input type="text" name="Name" placeholder="Enter your name" required>
                 </div>
 
                 <div class="field">
                     <label>Email</label>
-                    <input type="email" name="Email" placeholder="Email" required>
+                    <input type="email" name="Email" placeholder="email@example.com" required>
                 </div>
 
-                <div class="field full-width">
+                <div class="field">
                     <label>Desired Roles (select all that apply):</label>
                     <div class="checkbox-group">
 
                         <label class="check-item">
                             <input type="checkbox" name="Role[]" value="GYM & SPORTS ASSISTANCE">
                             <span>
-                                <span class="salary-tag">1000 PAID TRIAL</span>
-                                FOR GYM & SPORTS ASSISTANCE - 3 HOURS - YOU WOULD CLICK PHONE PICS OF
-                                CLIENT
+                                <span class="salary-tag">1000 PAID TRIAL</span><br>
+                                <strong>GYM & SPORTS ASSISTANCE</strong> - 3 Hours - Clicking phone pics of clients.
                             </span>
                         </label>
 
                         <label class="check-item">
                             <input type="checkbox" name="Role[]" value="ANALYSIS OF MOVIES">
                             <span>
-                                <span class="salary-tag">1000 PAID TRIAL</span>
-                                FOR ANALYSIS OF MOVIES - YOU WILL TALK TO PEOPLE AT MALL ABOUT BOLLYWOOD
-                                MOVIES
+                                <span class="salary-tag">1000 PAID TRIAL</span><br>
+                                <strong>ANALYSIS OF MOVIES</strong> - Interviewing people at malls about Bollywood.
                             </span>
                         </label>
 
                         <label class="check-item">
                             <input type="checkbox" name="Role[]" value="RESTAURANT & SALON REVIEWS">
                             <span>
-                                <span class="salary-tag">1000 PAID TRIAL</span>
-                                TO CREATE SPEAKING REELS OF RESTAURANT & SALON REVIEWS
+                                <span class="salary-tag">1000 PAID TRIAL</span><br>
+                                <strong>CONTENT CREATION</strong> - Creating speaking reels for reviews.
                             </span>
                         </label>
 
                         <label class="check-item">
                             <input type="checkbox" name="Role[]" value="PART-TIME ASSISTANT">
                             <span>
-                                <span class="salary-tag">15,000 MONTHLY</span>
-                                FOR PART-TIME ASSISTANT AT SPORTS FACILITIES / CONTENT CREATION
+                                <span class="salary-tag">15,000 MONTHLY</span><br>
+                                <strong>PART-TIME ASSISTANT</strong> - Sports facilities and content creation.
                             </span>
                         </label>
 
                     </div>
                 </div>
 
-                <div class="field full-width">
-                    <label>DO YOU HAVE GYM EXPERIENCE? IF SO, WHAT ARE YOUR FAV EXERCISES?</label>
+                <div class="field">
+                    <label>Gym Experience & Favorite Exercises</label>
                     <textarea name="Gym Experience" rows="2"
-                        placeholder="Describe your gym routine and favorite lifts..."></textarea>
+                        placeholder="Describe your gym routine..."></textarea>
                 </div>
 
-                <div class="field full-width">
-                    <label>HAVE YOU PLAYED A SPORT? IF SO, TELL ABOUT YOUR EXPERIENCE</label>
+                <div class="field">
+                    <label>Sports Experience</label>
                     <textarea name="Sports Experience" rows="2"
-                        placeholder="Sports played, years of experience, or any achievements..."></textarea>
+                        placeholder="Sports played or achievements..."></textarea>
                 </div>
 
                 <div class="social-grid">
                     <div class="field">
-                        <label>Instagram <span>(Optional)</span></label>
-                        <input type="url" name="Instagram" placeholder="Profile URL">
+                        <label>Instagram</label>
+                        <input type="url" name="Instagram" placeholder="https://instagram.com/yourprofile">
                     </div>
                     <div class="field">
-                        <label>YouTube <span>(Optional)</span></label>
-                        <input type="url" name="YouTube" placeholder="Channel URL">
-                    </div>
-                    <div class="field">
-                        <label>LinkedIn <span>(Optional)</span></label>
-                        <input type="url" name="LinkedIn" placeholder="Profile URL">
+                        <label>YouTube / LinkedIn</label>
+                        <input type="url" name="Social_Link" placeholder="Link to profile">
                     </div>
                 </div>
 
-                <div class="field full-width">
+                <div class="field">
                     <label>Availability</label>
-                    <textarea name="Availability" rows="2" placeholder="Which days and times are you available to work?"
+                    <textarea name="Availability" rows="2" placeholder="Days and times you are free"
                         required></textarea>
                 </div>
 
-                <div class="field full-width">
+                <div class="field">
                     <label>Your Fearless Story</label>
                     <textarea name="Story" rows="4" placeholder="What makes you fearless?" required></textarea>
                 </div>
@@ -408,6 +408,6 @@
             </form>
         </div>
     </section>
-</body>
 
+</body>
 </html>
