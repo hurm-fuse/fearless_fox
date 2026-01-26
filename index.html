@@ -59,7 +59,7 @@
 
         .btn:hover { background: var(--brand-red); transform: scale(1.05); }
 
-        /* --- ABOUT US (NEW SECTION) --- */
+        /* --- ABOUT US --- */
         #about {
             padding: 120px 10%;
             background-color: var(--text-dark);
@@ -104,7 +104,7 @@
 
         #apply-container {
             max-width: 1000px;
-            margin: -60px auto 0; /* Overlap effect */
+            margin: -60px auto 0;
             background: var(--bg-white);
             padding: 60px;
             box-shadow: 0 50px 100px rgba(0,0,0,0.1);
@@ -118,6 +118,7 @@
 
         form { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .full-width { grid-column: span 2; }
+        .social-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; grid-column: span 2; }
 
         .field { display: flex; flex-direction: column; gap: 8px; }
 
@@ -128,13 +129,14 @@
             font-weight: 800;
         }
 
-        label span { color: #999; font-weight: 400; font-style: italic; }
+        label span { color: #999; font-weight: 400; font-style: italic; text-transform: none; }
 
         input, textarea {
             border: 2px solid var(--border-color);
             padding: 18px;
             font-size: 1rem;
             transition: var(--transition);
+            width: 100%;
         }
 
         input:focus, textarea:focus { outline: none; border-color: var(--brand-red); }
@@ -183,7 +185,8 @@
         @media (max-width: 768px) {
             #apply-container { padding: 40px 20px; margin-top: 0; }
             form { grid-template-columns: 1fr; }
-            .full-width, .submit-btn { grid-column: span 1; }
+            .full-width, .submit-btn, .social-grid { grid-column: span 1; }
+            .social-grid { grid-template-columns: 1fr; }
             #hero h1 { font-size: 4rem; }
             #about { padding: 80px 5%; }
         }
@@ -194,21 +197,17 @@
 
     <section id="hero">
         <h1>STAY<br>FEARLESS.</h1>
-        <a href="#about" class="btn">Discover More</a>
+        <a href="#about" class="btn">Join The Team</a>
     </section>
 
     <section id="about">
         <div class="about-content">
             <span class="about-label">About Us</span>
-            <h2>Not just marketing.<br>A <span class="highlight">Revolution</span>.</h2>
             <p>
                 Fearless Footsteps isn’t just about affiliate marketing. We share & create 
-                <span class="highlight">catchy content</span> that moves the needle. 
-                We are looking for diligent individuals who are not afraid to take risks—those 
-                who want to <span class="highlight">build something legendary</span>.
+                <span class="highlight">catchy content</span>. We are looking for diligent individuals who 
+                are not afraid to take risks—those who want to <span class="highlight">build something legendary</span>.
             </p>
-            <br><br>
-            <a href="#apply" style="color: var(--brand-red); font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 2px;">↓ Join the team</a>
         </div>
     </section>
 
@@ -235,7 +234,7 @@
                 </div>
 
                 <div class="field full-width">
-                    <label>Select Path</label>
+                    <label>Select Your Path</label>
                     <div class="checkbox-group">
                         <label class="check-item">
                             <input type="checkbox" name="Role[]" value="Sports Assistant">
@@ -257,23 +256,28 @@
                 </div>
 
                 <div class="field full-width">
-                    <label>Gym Experience</label>
-                    <textarea name="Gym Experience" rows="2" placeholder="Tell us about your training..."></textarea>
+                    <label>Gym & Weight-Training Experience</label>
+                    <textarea name="Gym Experience" rows="2" placeholder="Tell us about your fitness background..."></textarea>
                 </div>
 
-                <div class="field">
-                    <label>Instagram Link <span>(Optional)</span></label>
-                    <input type="url" name="Instagram" placeholder="https://instagram.com/...">
-                </div>
-
-                <div class="field">
-                    <label>YouTube Channel <span>(Optional)</span></label>
-                    <input type="url" name="YouTube" placeholder="https://youtube.com/...">
+                <div class="social-grid">
+                    <div class="field">
+                        <label>Instagram <span>(Optional)</span></label>
+                        <input type="url" name="Instagram" placeholder="Profile URL">
+                    </div>
+                    <div class="field">
+                        <label>YouTube <span>(Optional)</span></label>
+                        <input type="url" name="YouTube" placeholder="Channel URL">
+                    </div>
+                    <div class="field">
+                        <label>LinkedIn <span>(Optional)</span></label>
+                        <input type="url" name="LinkedIn" placeholder="Profile URL">
+                    </div>
                 </div>
 
                 <div class="field full-width">
                     <label>Availability</label>
-                    <textarea name="Availability" rows="2" placeholder="Working days/hours?" required></textarea>
+                    <textarea name="Availability" rows="2" placeholder="Mention your free days/hours..." required></textarea>
                 </div>
 
                 <div class="field full-width">
@@ -281,7 +285,7 @@
                     <textarea name="Story" rows="4" placeholder="What makes you fearless?" required></textarea>
                 </div>
 
-                <button type="submit" class="submit-btn">Apply Now</button>
+                <button type="submit" class="submit-btn">Submit Application</button>
 
             </form>
         </div>
