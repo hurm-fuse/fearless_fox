@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEARLESS FOOTSTEPS | Career Portal</title>
+    <title>FEARLESS FOOTSTEPS | Build Something Legendary</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -12,16 +12,16 @@
             --brand-red: #E60000;
             --brand-red-hover: #BF0000;
             --bg-white: #FFFFFF;
-            --bg-light: #F8F8F8;
-            --text-dark: #111111;
-            --text-gray: #777777;
-            --border-color: #DDDDDD;
-            --transition: all 0.3s ease;
+            --bg-light: #F9F9F9;
+            --text-dark: #000000;
+            --text-gray: #555555;
+            --border-color: #E0E0E0;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         html { scroll-behavior: smooth; }
-        body { background-color: var(--bg-white); color: var(--text-dark); line-height: 1.6; }
+        body { background-color: var(--bg-white); color: var(--text-dark); }
 
         /* --- HERO --- */
         #hero {
@@ -33,22 +33,21 @@
             background: #fff;
             text-align: center;
             padding: 20px;
-            border-bottom: 10px solid var(--brand-red);
         }
 
         #hero h1 {
             font-family: 'Montserrat';
-            font-size: clamp(3.5rem, 12vw, 8.5rem);
+            font-size: clamp(3.5rem, 12vw, 9rem);
             font-weight: 900;
-            line-height: 0.85;
+            line-height: 0.8;
             color: var(--brand-red);
             text-transform: uppercase;
-            letter-spacing: -3px;
+            letter-spacing: -4px;
             margin-bottom: 40px;
         }
 
         .btn {
-            padding: 22px 55px;
+            padding: 20px 60px;
             background: var(--text-dark);
             color: white;
             text-decoration: none;
@@ -58,33 +57,64 @@
             transition: var(--transition);
         }
 
-        .btn:hover {
-            background: var(--brand-red);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(230, 0, 0, 0.2);
+        .btn:hover { background: var(--brand-red); transform: scale(1.05); }
+
+        /* --- ABOUT US (NEW SECTION) --- */
+        #about {
+            padding: 120px 10%;
+            background-color: var(--text-dark);
+            color: var(--bg-white);
+            text-align: center;
+        }
+
+        .about-content { max-width: 900px; margin: auto; }
+        
+        .about-label {
+            color: var(--brand-red);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        #about h2 {
+            font-family: 'Montserrat';
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        #about .highlight {
+            color: var(--bg-white);
+            font-weight: 600;
+            border-bottom: 2px solid var(--brand-red);
         }
 
         /* --- FORM --- */
         #apply { padding: 100px 5%; background-color: var(--bg-light); }
 
         #apply-container {
-            max-width: 950px;
-            margin: auto;
+            max-width: 1000px;
+            margin: -60px auto 0; /* Overlap effect */
             background: var(--bg-white);
             padding: 60px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.06);
-            border-top: 6px solid var(--brand-red);
+            box-shadow: 0 50px 100px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
         }
 
-        .form-header { margin-bottom: 45px; }
-        .form-header h2 {
-            font-family: 'Montserrat';
-            font-size: 2.2rem;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .form-header .line { width: 50px; height: 5px; background: var(--brand-red); margin-top: 8px; }
+        .form-header { margin-bottom: 50px; text-align: center; }
+        .form-header h2 { font-family: 'Montserrat'; font-size: 2.5rem; text-transform: uppercase; }
+        .red-line { width: 80px; height: 6px; background: var(--brand-red); margin: 15px auto; }
 
         form { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         .full-width { grid-column: span 2; }
@@ -95,73 +125,67 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-dark);
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        label span { color: var(--text-gray); font-weight: 400; font-style: italic; text-transform: none; margin-left: 5px; }
+        label span { color: #999; font-weight: 400; font-style: italic; }
 
         input, textarea {
-            background: #fff;
             border: 2px solid var(--border-color);
-            padding: 16px;
-            color: var(--text-dark);
+            padding: 18px;
             font-size: 1rem;
             transition: var(--transition);
         }
 
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--brand-red);
-        }
+        input:focus, textarea:focus { outline: none; border-color: var(--brand-red); }
 
-        /* Role Selection */
-        .checkbox-group { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+        /* Role Cards */
+        .checkbox-group { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
         .check-item {
             display: flex;
             align-items: center;
-            padding: 18px;
-            background: #fdfdfd;
+            padding: 20px;
+            background: #fff;
             border: 1px solid #eee;
             cursor: pointer;
             transition: var(--transition);
         }
-        .check-item:hover { background: #fff5f5; border-color: #ffcccc; }
-        .check-item input { margin-right: 15px; width: 20px; height: 20px; accent-color: var(--brand-red); }
+        .check-item:hover { border-color: var(--brand-red); background: #fff8f8; }
+        .check-item input { margin-right: 15px; width: 22px; height: 22px; accent-color: var(--brand-red); }
 
         .salary-tag {
             background: var(--brand-red);
             color: white;
-            padding: 3px 10px;
+            padding: 4px 12px;
             font-size: 0.7rem;
-            font-weight: 800;
-            margin-right: 12px;
+            font-weight: 900;
+            margin-right: 15px;
             text-transform: uppercase;
         }
 
         .submit-btn {
             grid-column: span 2;
-            padding: 24px;
+            padding: 25px;
             background: var(--brand-red);
             border: none;
             color: white;
-            font-weight: 800;
-            font-size: 1.2rem;
+            font-weight: 900;
+            font-size: 1.3rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             cursor: pointer;
             transition: var(--transition);
-            margin-top: 20px;
         }
 
-        .submit-btn:hover { background: var(--text-dark); }
+        .submit-btn:hover { background: var(--text-dark); letter-spacing: 6px; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            #apply-container { padding: 40px 20px; }
+            #apply-container { padding: 40px 20px; margin-top: 0; }
             form { grid-template-columns: 1fr; }
             .full-width, .submit-btn { grid-column: span 1; }
-            #hero h1 { font-size: 3.8rem; }
+            #hero h1 { font-size: 4rem; }
+            #about { padding: 80px 5%; }
         }
     </style>
 </head>
@@ -170,34 +194,48 @@
 
     <section id="hero">
         <h1>STAY<br>FEARLESS.</h1>
-        <a href="#apply" class="btn">Apply To Team</a>
+        <a href="#about" class="btn">Discover More</a>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <span class="about-label">About Us</span>
+            <h2>Not just marketing.<br>A <span class="highlight">Revolution</span>.</h2>
+            <p>
+                Fearless Footsteps isn’t just about affiliate marketing. We share & create 
+                <span class="highlight">catchy content</span> that moves the needle. 
+                We are looking for diligent individuals who are not afraid to take risks—those 
+                who want to <span class="highlight">build something legendary</span>.
+            </p>
+            <br><br>
+            <a href="#apply" style="color: var(--brand-red); font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 2px;">↓ Join the team</a>
+        </div>
     </section>
 
     <section id="apply">
         <div id="apply-container">
             <div class="form-header">
-                <h2>Join The Movement</h2>
-                <div class="line"></div>
+                <h2>Application</h2>
+                <div class="red-line"></div>
             </div>
 
             <form action="https://formsubmit.co/manuel.carrillo.gonzalez.1964@gmail.com" method="POST">
                 
                 <input type="text" name="_honey" style="display:none">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_subject" value="New Applicant: Fearless Footsteps">
 
                 <div class="field">
-                    <label>Your Full Name</label>
-                    <input type="text" name="Name" placeholder="e.g. Rahul Sharma" required>
+                    <label>Full Name</label>
+                    <input type="text" name="Name" placeholder="Your Name" required>
                 </div>
 
                 <div class="field">
                     <label>Email Address</label>
-                    <input type="email" name="Email" placeholder="rahul@example.com" required>
+                    <input type="email" name="Email" placeholder="Email@example.com" required>
                 </div>
 
                 <div class="field full-width">
-                    <label>Which role excites you most?</label>
+                    <label>Select Path</label>
                     <div class="checkbox-group">
                         <label class="check-item">
                             <input type="checkbox" name="Role[]" value="Sports Assistant">
@@ -219,36 +257,31 @@
                 </div>
 
                 <div class="field full-width">
-                    <label>Gym & Weight-Training Experience</label>
-                    <textarea name="Gym Experience" rows="3" placeholder="What are your favorite exercises?"></textarea>
+                    <label>Gym Experience</label>
+                    <textarea name="Gym Experience" rows="2" placeholder="Tell us about your training..."></textarea>
                 </div>
 
                 <div class="field">
                     <label>Instagram Link <span>(Optional)</span></label>
-                    <input type="url" name="Instagram" placeholder="https://instagram.com/username">
+                    <input type="url" name="Instagram" placeholder="https://instagram.com/...">
                 </div>
 
                 <div class="field">
                     <label>YouTube Channel <span>(Optional)</span></label>
-                    <input type="url" name="YouTube" placeholder="https://youtube.com/@channel">
+                    <input type="url" name="YouTube" placeholder="https://youtube.com/...">
                 </div>
 
                 <div class="field full-width">
-                    <label>Sports Background</label>
-                    <textarea name="Sports Experience" rows="2" placeholder="Which sports do you play?"></textarea>
+                    <label>Availability</label>
+                    <textarea name="Availability" rows="2" placeholder="Working days/hours?" required></textarea>
                 </div>
 
                 <div class="field full-width">
-                    <label>Daily Availability</label>
-                    <textarea name="Availability" rows="2" placeholder="What days/times are you available?" required></textarea>
+                    <label>Your Fearless Story</label>
+                    <textarea name="Story" rows="4" placeholder="What makes you fearless?" required></textarea>
                 </div>
 
-                <div class="field full-width">
-                    <label>What makes you fearless?</label>
-                    <textarea name="Story" rows="4" placeholder="Tell us your story..." required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Submit Application</button>
+                <button type="submit" class="submit-btn">Apply Now</button>
 
             </form>
         </div>
